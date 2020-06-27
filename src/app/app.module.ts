@@ -8,6 +8,7 @@ import { OperatorModule } from './operator/operator.module';
 import { OperationModule } from './operation/operation.module';
 import { ClientModule } from './client/client.module';
 import { AccountModule } from './account/account.module';
+import { AuthentificationModule } from './authentification/authentification.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { AccountModule } from './account/account.module';
     OperationModule,
     ClientModule,
     AccountModule,
+    AuthentificationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
