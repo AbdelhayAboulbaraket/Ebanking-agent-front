@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RateResponse } from '../models/rate-response';
+import { Currency } from '../models/currency';
 export const InterceptorSkip = 'X-Skip-Interceptor';
 export const InterceptorSkipHeader = new HttpHeaders({
   'X-Skip-Interceptor': '',
@@ -30,5 +31,8 @@ export class CurrencyConversionService {
         headers: InterceptorSkipHeader,
       }
     );
+  }
+  public findAllCurrencies(): Observable<Currency[]> {
+    return this.http.get<Currency[]>('http://localhost:8081/devises');
   }
 }
