@@ -11,8 +11,10 @@ export class ClientService {
   constructor(private http: HttpClient) {
     this.clientUrl = 'http://localhost:8081/client';
   }
-  public findAll(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.clientUrl + 's');
+  public findAll(code: string): Observable<Client[]> {
+    return this.http.get<Client[]>(
+      'http://localhost:8081/agence/' + code + '/clients'
+    );
   }
   public findClient(code: String): Observable<Client[]> {
     return this.http.get<Client[]>(this.clientUrl + 's?id=' + code);

@@ -6,7 +6,14 @@ export class Agent {
   adresse: string;
   telephone: string;
   email: string;
-  /*  agence: Agency; */
+  agence: {
+    id: number;
+    nom: string;
+    adresse: string;
+    telephone: string;
+    fax: string;
+    email: string;
+  };
   username: string;
   password: string;
 }

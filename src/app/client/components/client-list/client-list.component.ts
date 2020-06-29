@@ -13,6 +13,7 @@ import { ConfirmationDialogComponent } from 'src/app/shared/components/confirmat
 })
 export class ClientListComponent implements OnInit {
   CLIENTS: Client[];
+  agencyId: string;
 
   dataSource = new MatTableDataSource<Client>(this.CLIENTS);
 
@@ -32,14 +33,17 @@ export class ClientListComponent implements OnInit {
     'actions',
   ];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  constructor(private clientService: ClientService, public dialog: MatDialog) {}
+  constructor(private clientService: ClientService, public dialog: MatDialog) {
+    this.agencyId = sessionStorage.getItem('agency');
+    console.log(this.agencyId);
+  }
 
   deleteClient(id: number) {
     this.clientService.delete(id).subscribe(
       (data) => {
         console.log(data);
 
-        this.clientService.findAll().subscribe(
+        this.clientService.findAll(this.agencyId).subscribe(
           (data) => {
             this.CLIENTS = data;
             this.dataSource = new MatTableDataSource<Client>(this.CLIENTS);
@@ -55,7 +59,7 @@ export class ClientListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('salam');
-    this.clientService.findAll().subscribe(
+    this.clientService.findAll(this.agencyId).subscribe(
       (data) => {
         console.log(data);
         this.CLIENTS = data;

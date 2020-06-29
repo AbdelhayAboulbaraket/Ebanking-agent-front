@@ -20,6 +20,7 @@ export class AuthentificationService {
         map((userData) => {
           sessionStorage.setItem('username', username);
           sessionStorage.setItem('name', userData.nom);
+          sessionStorage.setItem('agency', userData.agence.id.toString());
           sessionStorage.setItem('currentAgentId', userData.id.toString());
 
           let authString = 'Basic ' + btoa(username + ':' + password);
@@ -38,6 +39,7 @@ export class AuthentificationService {
   logOut() {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('name');
+    sessionStorage.removeItem('agency');
     sessionStorage.removeItem('currentAgentId');
     sessionStorage.removeItem('basicauth');
   }

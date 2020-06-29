@@ -85,7 +85,7 @@ export class OperationFormComponent implements OnInit {
     this.devise1 = this.account.devise.code;
     this.devise2 = this.operation.devise.code;
     setTimeout(() => {
-      this.currencyService.getRate(this.devise1, this.devise2).subscribe(
+      this.currencyService.getRate(this.devise2, this.devise1).subscribe(
         (data) => {
           //get the rate
           this.rates = data;

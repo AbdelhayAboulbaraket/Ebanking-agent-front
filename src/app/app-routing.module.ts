@@ -9,6 +9,7 @@ import { OperatorListComponent } from './operator/components/operator-list/opera
 import { OperatorFormComponent } from './operator/components/operator-form/operator-form.component';
 import { OperationListComponent } from './operation/components/operation-list/operation-list.component';
 import { OperationFormComponent } from './operation/components/operation-form/operation-form.component';
+import { AuthGuardService } from './authentification/services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -23,34 +24,42 @@ const routes: Routes = [
   {
     path: 'clients',
     component: ClientListComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'clientForm',
     component: ClientFormComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'client/:id/accounts',
     component: AccountListComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'client/:id/accountForm',
     component: AccountFormComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'operators',
     component: OperatorListComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'operatorForm',
     component: OperatorFormComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'client/:id/account/:id2/operations',
     component: OperationListComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: 'client/:id/account/:id2/operationForm',
     component: OperationFormComponent,
+    canActivate: [AuthGuardService],
   },
 ];
 
