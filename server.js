@@ -1,11 +1,11 @@
-const express = require ('express');
+const express = require("express");
 
-const app = express ();
+const app = express();
 
-app.use (express.static ('./dist/ebanking-agent-front'));
+app.use(express.static("./dist/Ebanking-agent-front"));
 
-app.get ('/*', (req, res) =>
-  res.sendFile ('index.html', {root: 'dist/ebanking-agent-front/'})
+app.get("/*", (req, res) =>
+  res.sendFile("index.html", { root: "dist/Ebanking-agent-front/" })
 );
 
-app.listen (process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080);
