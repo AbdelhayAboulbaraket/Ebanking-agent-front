@@ -9,11 +9,11 @@ import { Client } from '../model/client';
 export class ClientService {
   private clientUrl: string;
   constructor(private http: HttpClient) {
-    this.clientUrl = 'http://localhost:8081/client';
+    this.clientUrl = 'https://ebanking-banking.herokuapp.com/client';
   }
   public findAll(code: string): Observable<Client[]> {
     return this.http.get<Client[]>(
-      'http://localhost:8081/agence/' + code + '/clients'
+      'https://ebanking-banking.herokuapp.com/agence/' + code + '/clients'
     );
   }
   public findClient(code: String): Observable<Client[]> {

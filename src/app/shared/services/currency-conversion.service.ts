@@ -33,6 +33,8 @@ export class CurrencyConversionService {
     );
   }
   public findAllCurrencies(): Observable<Currency[]> {
-    return this.http.get<Currency[]>('http://localhost:8081/devises');
+    return this.http.get<Currency[]>(
+      'https://ebanking-banking.herokuapp.com/devises'
+    );
   }
 }
