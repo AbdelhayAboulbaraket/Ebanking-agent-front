@@ -9,7 +9,7 @@ import { Operator } from '../model/operator';
 export class OperatorService {
   private operatorUrl: string;
   constructor(private http: HttpClient) {
-    this.operatorUrl = 'https://ebanking-banking.herokuapp.com/operateur';
+    this.operatorUrl = 'http://localhost:8081/operateur';
   }
   public findAll(): Observable<Operator[]> {
     return this.http.get<Operator[]>(this.operatorUrl + 's');
